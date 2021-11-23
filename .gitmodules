@@ -1,3 +1,0 @@
-[submodule "server/rails_api"]
-	path = server/rails_api
-	url = /workspace/frameworks_and_languages_module/server/rails_api/.git/
