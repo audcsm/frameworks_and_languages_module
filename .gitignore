@@ -13,3 +13,13 @@
 **/node_modules
 package-lock.json
 yarn.lock
+
+# rails bits
+/server/rails_api/.bundle
+/server/rails_api/db/*.sqlite3
+/server/rails_api/db/*.sqlite3-*
+/server/rails_api/log/*
+/server/rails_api/tmp/*
+/server/rails_api/tmp/pids/*
+/server/rails_api/storage/*
+/server/rails_api/config/master.key
