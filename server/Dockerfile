@@ -12,5 +12,5 @@ RUN bundle install
 
 COPY ./rails_api/ ./
 
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+CMD ["rails", "s", "-b", "0.0.0.0", "-p", "8000"]
 
