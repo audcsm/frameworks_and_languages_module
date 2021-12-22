@@ -2,8 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts << "3000-copper-slug-6fjpzrxa.ws-eu17.gitpod.io"
-  config.hosts << "8000-copper-slug-6fjpzrxa.ws-eu21.gitpod.io"
+  config.hosts << "8000-copper-slug-6fjpzrxa.ws-us23.gitpod.io"
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
