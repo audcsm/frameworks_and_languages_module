@@ -14,12 +14,15 @@ ActiveRecord::Schema.define(version: 2021_11_23_010753) do
 
   create_table "items", force: :cascade do |t|
     t.string "user_id"
-    t.string "keywords"
+    # use ['key', 'key2']
+    t.string "keywords", array: true
     t.string "description"
     t.integer "lat"
     t.integer "lon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+
+  add_index :items, :keywords, using: 'gin'
 
 end
