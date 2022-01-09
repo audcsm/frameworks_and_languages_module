@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class ItemController < ApplicationController
 
   # GET all item data
   def index
@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   # POST a new item
-  def create
+  def post
     # allows to parse item before saving to database
     item = Item.new(item_params)
 
