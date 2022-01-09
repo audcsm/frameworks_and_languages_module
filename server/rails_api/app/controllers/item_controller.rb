@@ -6,7 +6,7 @@ class ItemController < ApplicationController
   end
 
   # POST a new item
-  def post
+  def create
     # allows to parse item before saving to database
     item = Item.new(item_params)
 

@@ -8,7 +8,7 @@ import requests
 
 @pytest.fixture(scope="session")
 def ENDPOINT():
-    return os.environ.get('URI_SERVER', 'http://localhost:8000')
+    return os.environ.get('URI_SERVER', 'http://server:8000')
 
 
 @pytest.fixture(scope="session", autouse=True)

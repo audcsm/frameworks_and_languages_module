@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  root 'item#index'
-
-  get 'item/index'
+  get '/item' => 'item#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :item, only: [:index, :post]
+  resources :item, only: [:index, :create]
 end
