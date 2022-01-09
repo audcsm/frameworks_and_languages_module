@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link id="favicon" rel="shortcut icon" type="image/png" href="data:image/png;base64,....==" />
+    <title>FreeCycle Client</title>
+    <style>
+        
+    </style>
+    <script src="https://unpkg.com/vue@next"></script> <!-- https://v3.vuejs.org/guide/installation.html#cdn -->
+</head>
+<body>
+    <h1>FreeCycle Client</h1>
+
+    <h2>Create a New Item</h2>
+    <form>
+        <input type="text" id="user_id-input" name="user_id">
+        <input type="text" id="keywords-input" name="keywords">
+        <input type="text" id="desc-input" name="description">
+        <input type="text" id="img-input" name="image">
+        <input type="text" id="lat-input" name="lat">
+        <input type="text" id="lon-input" name="lon">
+    </form>
+
+    <!-- 
+        Vue.js - Introduction
+        https://v3.vuejs.org/guide/introduction.html#declarative-rendering 
+    -->
+    <div id="counter">
+        Counter: {{ counter }}
+    </div>
+      
+    <script type="module">
+        const Counter = {
+            data() {
+                return {
+                    counter: 0,
+                }
+            },
+            mounted() {
+                setInterval(() => {
+                    this.counter++
+                }, 1000)
+            }
+        }
+
+        Vue.createApp(Counter).mount('#counter')
+    </script>
+</body>
+</html>
