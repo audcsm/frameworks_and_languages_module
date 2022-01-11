@@ -12,7 +12,5 @@ RUN bundle install
 
 COPY ./rails_api/ .
 
-EXPOSE 8000
-
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "8000"]
 
