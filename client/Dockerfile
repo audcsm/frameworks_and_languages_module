@@ -1,5 +1,14 @@
-FROM nginx:alpine
+FROM node:alpine
 
-ENV PATH_NGINX_SERVE=/usr/share/nginx/html
-RUN curl https://unpkg.com/vue@next -L -o ${PATH_NGINX_SERVE}/vue.js
-COPY . ${PATH_NGINX_SERVE}
+WORKDIR /vue_client
+
+COPY ./vue_client/package.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+EXPOSE 8001
+CMD ["npm", "run", "serve", "--", "--port", "8001"]
