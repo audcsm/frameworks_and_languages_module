@@ -1,5 +1,4 @@
 class ItemController < ApplicationController
-
   # GET all item data
   def index
     render json: Item.all
@@ -17,17 +16,9 @@ class ItemController < ApplicationController
 
   # POST a new item
   def create
-    # allows to parse item before saving to database
-    item = Item.new(item_params)
-
-    # if the item parses properly
-    if item.save
-      # return happy things (show the item data and 201)
-      render json: item, status: :created
-    else
-      # else return the errors and 405
-      render json: item.errors, status: :method_not_allowed
-    end
+    # allows to parse item before saving
+    item = Item.create(item_params)
+    render json: item, status: :created
   end
 
   # PUT an item by id
@@ -36,7 +27,7 @@ class ItemController < ApplicationController
     item = Item.find(params[:id])
 
     # if updated successfully
-    if item.update!(item_params)
+    if item.update(item_params)
       render json: item, status: :created
     else
       render json: item.errors, status: :method_not_allowed 
@@ -46,7 +37,7 @@ class ItemController < ApplicationController
   # DELETE an item by id
   def destroy
     # find the item by the given id and remove it
-    Item.find(params[:id]).destroy!
+    Item.find(params[:id]).destroy
     # respond with a 201
     head :created
   end
@@ -58,4 +49,5 @@ class ItemController < ApplicationController
   def item_params
     params.require(:item).permit(:user_id, :keywords, :description, :lat, :lon)
   end
+  
 end
