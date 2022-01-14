@@ -21,6 +21,7 @@
           </v-card-text>
           <v-card-actions>
             <div class="flex-grow-1"></div>
+            <v-btn color="secondary" @click="redirectList()" >View Items</v-btn>
             <v-btn color="primary" @click="postData(); resetForm()" >Submit</v-btn>
             <v-btn color="error" @click="resetForm()" class="reset"> Reset Form </v-btn>
           </v-card-actions>
@@ -68,6 +69,9 @@ export default {
         .catch(function (error) {
           console.log(error)
         })
+    },
+    redirectList () {
+      this.$router.push('/list')
     }
   }
 }
