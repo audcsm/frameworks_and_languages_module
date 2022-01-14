@@ -8,7 +8,5 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
-
 EXPOSE 8001
 CMD ["npm", "run", "serve", "--", "--port", "8001"]

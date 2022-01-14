@@ -3,18 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
-import axios from 'axios'
-import Vuex from 'vuex'
+// import axios from 'axios'
 
 Vue.config.productionTip = false
-
-Vue.use(Vuex)
-
-const token = localStorage.getItem('token')
-
-if (token) {
-  axios.defaults.headers.common.authorization = token
-}
 
 new Vue({
   router,
@@ -22,3 +13,14 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount('#app')
+
+/* axios.post('http://localhost:8000/item', {
+  params: {
+    user_id: this.user_id,
+    keywords: this.keywords,
+    desc: this.desc,
+    imgurl: this.imgurl,
+    lat: this.lat,
+    lon: this.lon
+  }
+}) */

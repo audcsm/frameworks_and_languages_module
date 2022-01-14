@@ -1,10 +1,10 @@
 <template>
   <v-container class="fill-height" fluid>
-    <v-row align="center" justify="center" >
-      <v-col cols="12" sm="8" md="4" >
+    <v-row align="center" justify="center">
+      <v-col cols="12" sm="8" md="4">
         <v-card class="elevation-12">
           <v-toolbar dark flat >
-            <v-toolbar-title>Login form</v-toolbar-title>
+            <v-toolbar-title>Create a New Item</v-toolbar-title>
             <div class="flex-grow-1"></div>
             <v-tooltip bottom>
             </v-tooltip>
@@ -21,8 +21,8 @@
           </v-card-text>
           <v-card-actions>
             <div class="flex-grow-1"></div>
-            <v-btn color="primary">Submit</v-btn>
-            <v-btn color="error" @click="resetForm" class="reset"> Reset Form </v-btn>
+            <v-btn color="primary" @click="postData(); resetForm()" >Submit</v-btn>
+            <v-btn color="error" @click="resetForm()" class="reset"> Reset Form </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -31,7 +31,9 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+  // export data from the form, notice each item has a corresponding label
   data () {
     return {
       user_id: '',
@@ -42,13 +44,31 @@ export default {
       lon: ''
     }
   },
-  resetForm () {
-    this.user_id = ''
-    this.keywords = ''
-    this.desc = ''
-    this.imgurl = ''
-    this.lat = ''
-    this.lon = ''
+  methods: {
+    // resets the form for accessibility purposes
+    resetForm () {
+      this.user_id = ''
+      this.keywords = ''
+      this.desc = ''
+      this.imgurl = ''
+      this.lat = ''
+      this.lon = ''
+    },
+    postData () {
+      axios.post('https://8000-copper-slug-6fjpzrxa.ws-us27.gitpod.io/item', {
+        user_id: this.user_id,
+        keywords: this.keywords,
+        description: this.desc,
+        lat: this.lat,
+        lon: this.lon
+      })
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    }
   }
 }
 </script>
